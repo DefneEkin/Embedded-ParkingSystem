@@ -1,9 +1,6 @@
 # Embedded-ParkingSystem
-Embedded system for managing a multi-storey parking lot using PIC18F8722 with USART, ADC, timer interrupts, and real-time message handling.
 
-
-
-A PIC18F8722-based embedded system that manages a multi-storey parking lot through serial communication with a Python simulator. Implemented for CENG336 Take-Home Exam 3.
+A PIC18F8722-based embedded system that manages a multi-storey parking lot through serial communication with a Python simulator. 
 
 ## Overview
 The microcontroller communicates with the simulator via USART (115200 bps, 8N1) and handles:
@@ -16,5 +13,17 @@ The microcontroller communicates with the simulator via USART (115200 bps, 8N1) 
 
 The parking lot has 4 levels (A–D), each with 10 spaces, and supports subscriptions, a waiting queue, and real-time status reporting.
 
-## Directory Structure
+## Running the Simulator
+```bash
+python3 cengParkSimulator.py
+```
 
+## Build
+
+Compile with MPLAB X + XC8 for PIC18F8722 @ 40MHz.
+
+## Notes
+
+Messages follow the $...# protocol and are sent every 100ms.
+ADC determines active parking level.
+PORTB interrupt toggles display mode.
